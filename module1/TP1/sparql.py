@@ -51,8 +51,6 @@ sparql.setReturnFormat(JSON)
 results = sparql.query().convert()
 rows = results['results']['bindings']
 
-MayorList = [result['personLabel']['value'] for result in rows]
-
 date_format = "%Y-%m-%dT%H:%M:%SZ"
 
 for row in rows:
@@ -65,5 +63,5 @@ for row in rows:
     except ValueError: # unknown death date
         political_party = "????"
 
-    print(f"{row['personLabel']['value']}- {start_date} - {political_party})")
+    print(f"{row['personLabel']['value']} - {start_date} - {political_party})")
     
